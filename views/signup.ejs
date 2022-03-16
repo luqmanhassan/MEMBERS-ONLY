@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head.ejs') %>
+
+  <body>
+    <%- include('./nav.ejs') %>
+
+    <form class="signup" action="/signup" method="post" autocomplete="on">
+      <h1>Sign Up</h1>
+      <p>Already registered? <a href="/login">Log in </a></p>
+
+      <section>
+        <label for="username">Username</label>
+        <input
+          name="username"
+          type="text"
+          autocomplete="username"
+          required
+          autofocus
+        />
+      </section>
+      <section>
+        <label for="current-password">Password</label>
+        <input
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+      </section>
+      <section>
+        <label for="current-password">Confirm Password</label>
+        <input
+          name="confirmPassword"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+      </section>
+      <section>
+        <p>Select Avatar</p>
+
+        <input type="radio" value="Ape1" name="avatar" required />
+          <label for="Ape1">Ape1</label><br />
+
+        <input type="radio" value="Ape2" name="avatar" required />
+          <label for="Ape2">Ape2</label><br />
+
+        <input type="radio" value="Ape3" name="avatar" required />
+          <label for="Ape3">Ape3</label><br />
+      </section>
+
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

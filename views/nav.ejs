@@ -1,0 +1,33 @@
+<nav>
+  <ul>
+    <li><a href="/"> Ape Club</a></li>
+  </ul>
+  <ul>
+    <% if (currentUser) {%>
+    <li>
+      <a href="/message">Create Message</a>
+    </li>
+    <li>
+      <a href="/member">Member</a>
+    </li>
+    <li>
+      <a href="/admin">Admin</a>
+    </li>
+
+    <li>
+      <img src="./images/<%= currentUser.avatar%>.png" alt="A" width="20px" />
+    </li>
+
+    <li>
+      <a href="/logout">Log Out</a>
+    </li>
+    <%} else { %>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+    <li>
+      <a href="/signup">Sign Up</a>
+    </li>
+    <% } %>
+  </ul>
+</nav>

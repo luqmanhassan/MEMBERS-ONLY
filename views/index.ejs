@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head.ejs') %>
+  <body>
+    <%- include('./nav.ejs') %>
+    <main>
+      <section class="card">
+        <div class="div1">
+          <img src="./images/profile1.png" alt="bored ape nft" />
+        </div>
+        <div class="div2">
+          <h3>Hello World</h3>
+          <p>
+            To see additional information, register an account and log in, then
+            use the passcode "ape" to become a member and or an admin of The Ape
+            Club!
+          </p>
+          <hr />
+          <span>
+            <p>Posted by Ape Man</p>
+            <p>1868-04-04</p>
+          </span>
+        </div>
+      </section>
+      <section>
+        <% if (messages.length > 0){ %> <% messages.forEach(message => { %>
+
+        <div class="data">
+          <div class="div1">
+            <img src="./images/<%= message.avatar%>.png" alt="A" />
+          </div>
+
+          <div class="div2">
+            <h3><%= message.title %></h3>
+            <p><%= message.message %></p>
+            <hr />
+            <% if(currentUser && currentUser.isMember == 'true'){ %>
+            <span>
+              <p>Posted by <%= message.user %></p>
+              <p>Date:<%= message.createdAt %></p>
+            </span>
+            <% } else { %>
+            <span>
+              <p>Posted by Unknown</p>
+              <p>Date: Unknown</p>
+            </span>
+            <% } %> <% if(currentUser && currentUser.isAdmin == 'true'){ %>
+            <button class="delete" data-message="<%= message._id%>">
+              Delete
+            </button>
+            <% } %>
+          </div>
+        </div>
+        <% }) %> <% } else { %>
+        <p>There are no message items to display</p>
+        <% } %>
+      </section>
+    </main>
+
+    <script>
+      const deleteBTN = document.querySelector('.delete');
+      deleteBTN.addEventListener('click', (e) => {
+        const endpoint = '/delete/' + deleteBTN.dataset.message;
+        fetch(endpoint, {method: 'DELETE'})
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head.ejs') %>
+
+  <body>
+    <%- include('./nav.ejs') %>
+
+    <form action="/admin" method="POST" autocomplete="on">
+      <p>Become an Admin</p>
+      <label for="passcode">Enter the Admin Passcode:</label><br />
+      <input type="password" name="isAdmin" required /><br />
+      <input type="hidden" name="id" value="<%= currentUser._id %>" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

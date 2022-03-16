@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head.ejs') %>
+
+  <body>
+    <%- include('./nav.ejs') %>
+
+    <form action="/message" method="POST" autocomplete="on">
+      <p>Create A Message</p>
+      <label for="title">Title</label><br />
+      <input type="text" name="title" required /><br />
+
+      <label for="message">Message</label><br />
+      <input type="text" name="message" required /><br />
+
+      <input type="hidden" name="user" value="<%=currentUser.username%>" />
+      <input type="hidden" name="avatar" value="<%=currentUser.avatar%>" />
+      <input
+        type="hidden"
+        name="createdAt"
+        value="<%=currentUser.createdAt%>"
+      />
+
+      <input type="submit" />
+    </form>
+  </body>
+</html>

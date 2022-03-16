@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head.ejs') %>
+
+  <body>
+    <%- include('./nav.ejs') %>
+
+    <form action="/member" method="POST" autocomplete="on">
+      <p>Become a Member</p>
+      <label for="passcode">Enter the Member Passcode:</label><br />
+      <input type="password" name="isMember" required /><br />
+
+      <input type="hidden" name="id" value="<%= currentUser._id %>" />
+
+      <input type="submit" />
+    </form>
+  </body>
+</html>

@@ -3,7 +3,10 @@
   <%- include('./head.ejs') %>
 
   <body>
-    <%- include('./nav.ejs') %>
+    <%- include('./nav.ejs') %> <% if(typeof alert != 'undefined'){ %> <%
+    alert.forEach((err)=>{ %>
+    <p><%= err.msg %></p>
+    <% }) %> <% } %>
 
     <form action="/admin" method="POST" autocomplete="on">
       <p>Become an Admin</p>

@@ -3,7 +3,10 @@
   <%- include('./head.ejs') %>
 
   <body>
-    <%- include('./nav.ejs') %>
+    <%- include('./nav.ejs') %> <% if(typeof alert != 'undefined'){ %> <%
+    alert.forEach((err)=>{ %>
+    <p><%= err.msg %></p>
+    <% }) %> <% } %>
 
     <form class="login card" action="/login" method="POST" autocomplete="on">
       <h1>Login</h1>
